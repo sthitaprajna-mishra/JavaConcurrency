@@ -1,4 +1,4 @@
-# Java Concurrency and MultiThreading - 1
+# Java Concurrency and MultiThreading - Basics
 
 Welcome to the realm of Java threads, 
 where virtual CPUs execute your code in parallel, 
@@ -197,5 +197,59 @@ Stopping a thread requires careful implementation. Avoid using the deprecated `s
 Instead, implement a signal mechanism:
 
 ```java
+// ThreadStop.java
+package com.sthmishra.concurrency;
 
+public class ThreadStop {
+    public static class StopRunnable implements Runnable {
+        private boolean doStop = false;
+        
+        private int rounds = 1;
+
+        public synchronized void doStop() {
+            this.doStop = true;
+        }
+
+        private synchronized boolean keepRunning() {
+            return !this.doStop;
+        }
+
+        @Override
+        public void run() {
+            while(keepRunning()) {
+                // Perform tasks
+                System.out.println("Running round " + rounds + "......");
+
+                try {
+                    Thread.sleep(3000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Finished round " + rounds + ".");
+                this.rounds++;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        StopRunnable obj = new StopRunnable();
+
+        Thread thread = new Thread(obj);
+        thread.start();
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        obj.doStop();
+    }
+}
 ```
+
+In the main method of the `ThreadStop` class, an instance of `StopRunnable` is created, and a new thread is started with this instance. The main thread then pauses for a short duration (simulating some other concurrent activities) before calling the `doStop()` method on the `StopRunnable` instance. This action triggers the termination of the thread by setting the `doStop` flag. 
+
+If you comment the `doStop()` call, the `run` method will run in an infinite loop.
+
