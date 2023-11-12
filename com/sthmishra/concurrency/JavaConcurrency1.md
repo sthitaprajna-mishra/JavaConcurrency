@@ -1,4 +1,4 @@
-# Java Concurrency and MultiThreading - 1
+# Java Concurrency and MultiThreading - Basics
 
 Welcome to the realm of Java threads, 
 where virtual CPUs execute your code in parallel, 
