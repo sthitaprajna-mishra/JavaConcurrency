@@ -58,7 +58,7 @@ A language is considered object-oriented if it supports the four fundamental pri
 
 Encapsulation is the bundling of data and methods that operate on that data into a single unit, i.e., a class. It helps in hiding the internal state of an object and restricting access to the internal details.
 
-### What do you mean by tightly encapuslated? 
+### 6. What do you mean by tightly encapuslated? 
 
 If each variable is declared as private in the class, it is called tightly encapsulated class in Java. 
 
