@@ -44,5 +44,35 @@ A language is considered object-oriented if it supports the four fundamental pri
 * polymorphism
 * abstraction
 
+### 4. Difference between procedural programming language and object-oriented programming language.
 
+| Procedural Programming                                                               | Object-Oriented Programming                                                                |
+|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| In procedural programming, the program is divided into small parts called **functions**. | In object-oriented programming, the program is divided into small parts called **objects**. |
+| Procedural programming follows a **top-down approach**. |   Object-oriented programming follows a **bottom-up approach**.   |
+| There is no access specifier in procedural programming. |  Object-oriented programming has access specifiers like private, public, protected, etc. |
+| In procedural programming, there is no concept of data hiding and inheritance. | In object-oriented programming, the concept of data hiding and inheritance is used. |
+| Procedural programming does not have any proper way of hiding data so it is **less secure**. | Object-oriented programming provides data hiding so it is **more secure**. |
 
+### 5. What is encapsulation? 
+
+Encapsulation is the bundling of data and methods that operate on that data into a single unit, i.e., a class. It helps in hiding the internal state of an object and restricting access to the internal details.
+
+### What do you mean by tightly encapuslated? 
+
+If each variable is declared as private in the class, it is called tightly encapsulated class in Java. 
+
+For a tightly encapsulated class, we are not required to check whether the class contains getter and setter method or not and whether these methods are declared as public or not. For example - 
+
+```java
+// TightEncapsulationExample.java
+package com.sthmishra.interview;
+
+public class TightEncapsulationExample {
+    private double balance;
+
+    public double getBalance() {
+        return balance;
+    }
+}
+```
