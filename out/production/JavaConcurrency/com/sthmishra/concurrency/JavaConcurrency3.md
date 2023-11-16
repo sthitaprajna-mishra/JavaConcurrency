@@ -40,17 +40,12 @@ import java.util.concurrent.Executors;
 
 public class FixedThreadPoolExample {
     public static void main(String[] args) {
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
 
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 100; i++) {
             int taskId = i+1;
             Runnable runnable = () -> {
                 String currentThreadName = Thread.currentThread().getName();
-                try {
-                    Thread.sleep(500);
-                } catch(Exception ex) {
-                    ex.printStackTrace();
-                }
                 System.out.println("Task " + taskId + " executed by thread " + currentThreadName);
             };
             fixedThreadPool.execute(runnable);
@@ -59,7 +54,6 @@ public class FixedThreadPoolExample {
         fixedThreadPool.shutdown();
     }
 }
-
 ```
 
 #### 2. `newCachedThreadPool()` method:
@@ -74,6 +68,31 @@ and removed from the pool to conserve resources.
 * **Use Case:** Suitable for scenarios with a variable number of tasks 
 and where threads can be created and terminated as needed. 
 It's a good choice for handling a large number of short-lived asynchronous tasks.
+
+```java
+// CachedThreadPoolExample.java
+package com.sthmishra.concurrency;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class CachedThreadPoolExample {
+    public static void main(String[] args) {
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+
+        for(int i = 0; i < 100; i++) {
+            int taskId = i+1;
+            Runnable runnable = () -> {
+                String currentThreadName = Thread.currentThread().getName();
+                System.out.println("Task " + taskId + " executed by thread " + currentThreadName);
+            };
+            cachedThreadPool.execute(runnable);
+        }
+
+        cachedThreadPool.shutdown();
+    }
+}
+```
 
 
 

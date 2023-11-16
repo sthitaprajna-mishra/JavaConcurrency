@@ -21,6 +21,25 @@ public class OurGenericList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new OurGenericListIterator(this);
+    }
+
+    private class OurGenericListIterator implements Iterator<T> {
+
+        private OurGenericList<T> list;
+        private int index = 0;
+
+        public OurGenericListIterator(OurGenericList<T> list) {
+            this.list = list;
+        }
+        @Override
+        public boolean hasNext() {
+            return index < list.size;
+        }
+
+        @Override
+        public T next() {
+            return list.items[index++];
+        }
     }
 }
