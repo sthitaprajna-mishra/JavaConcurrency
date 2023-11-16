@@ -14,6 +14,15 @@ public class Client {
 
         List<Integer> alist2 = new ArrayList<>(alist);
         alist2.add(4);
+        alist2.add(5);
+        alist2.add(6);
+        alist2.addAll(alist);
+
+        System.out.println(alist2.indexOf(2));
+        System.out.println(alist2.lastIndexOf(2));
+
+        List<Integer> alist3 = alist2.subList(2, 4);
+        alist3.set(0, 100);
 
 //        Iterator<Integer> iterator = list.iterator();
 //
@@ -21,9 +30,9 @@ public class Client {
 //            System.out.println(iterator.next());
 //        }
 
-        System.out.println(alist);
+//        System.out.println(alist);
         System.out.println(alist2);
-
+        System.out.println(alist3);
 
 //        for(int x : alist) {
 //            System.out.println(x);
