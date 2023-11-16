@@ -34,11 +34,13 @@ public class OurGenericList<T> implements Iterable<T> {
         }
         @Override
         public boolean hasNext() {
+            System.out.println("hasNext() called");
             return index < list.size;
         }
 
         @Override
         public T next() {
+            System.out.println("next() called");
             return list.items[index++];
         }
     }
