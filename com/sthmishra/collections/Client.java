@@ -10,6 +10,12 @@ public class Client {
         alist.add(2);
         alist.add(3);
 
+        Integer[] arr = alist.toArray(new Integer[0]);
+
+        for(int x : arr) {
+            System.out.println(x);
+        }
+
 //        System.out.println(alist.set(1, 100));
 
         List<Integer> alist2 = new ArrayList<>(alist);
