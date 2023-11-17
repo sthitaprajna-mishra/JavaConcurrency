@@ -38,15 +38,54 @@ public class Client3 {
         dq.offerLast(7);
         dq.offerLast(8);
 
-        System.out.println(dq);
+//        System.out.println(dq);
 
         // 4 3 2 1 5 6 7 8
 
         dq.pollFirst();
         dq.pollLast();
 
-        System.out.println(dq.peekFirst()); // 3
-        System.out.println(dq.peekLast()); // 7
+//        System.out.println(dq.peekFirst()); // 3
+//        System.out.println(dq.peekLast()); // 7
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.offer(1);
+        pq.offer(2);
+        pq.offer(0);
+        pq.offer(100);
+
+        List<Integer> bottom = new ArrayList<>();
+        int index = 0;
+
+        while(!pq.isEmpty()) {
+            if(index == 2) break;
+            bottom.add(pq.poll());
+            index++;
+        }
+
+//        System.out.println(bottom);
+//        System.out.println(pq);
+
+        List<StudentMarks> students = new ArrayList<>();
+        students.add(new StudentMarks(70, 80));
+        students.add(new StudentMarks(38, 10));
+        students.add(new StudentMarks(100, 38));
+        students.add(new StudentMarks(40, 88));
+        students.add(new StudentMarks(97, 19));
+
+        PriorityQueue<StudentMarks> spq = new PriorityQueue<>(students);
+
+        List<Integer> top3 = new ArrayList<>();
+        int i = 0;
+
+        while(!pq.isEmpty()) {
+            if(i == 3) break;
+            top3.add(pq.poll());
+            i++;
+        }
+
+        System.out.println(top3);
 
     }
 }
