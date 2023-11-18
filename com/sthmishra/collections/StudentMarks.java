@@ -44,7 +44,7 @@ public class StudentMarks implements Comparable<StudentMarks> {
         // above 3 lines can be written in below format
 
 //        return this.math - o.math; // this way it will be ascending
-
+        System.out.println("Comparable's compareTo() is called");
         return o.math - this.math; // this will be descending
 
     }

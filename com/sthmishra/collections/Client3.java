@@ -48,7 +48,12 @@ public class Client3 {
 //        System.out.println(dq.peekFirst()); // 3
 //        System.out.println(dq.peekLast()); // 7
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        // old way
+//        PriorityQueue<Integer> pq = new PriorityQueue<>(new MyCustomComparator());
+
+        // new way
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b-a);
+
 
         pq.offer(1);
         pq.offer(2);
@@ -74,7 +79,15 @@ public class Client3 {
         students.add(new StudentMarks(40, 88));
         students.add(new StudentMarks(97, 19));
 
-        PriorityQueue<StudentMarks> spq = new PriorityQueue<>(students);
+//        PriorityQueue<StudentMarks> spq = new PriorityQueue<>(students);
+
+        PriorityQueue<StudentMarks> spq = new PriorityQueue<>((s1, s2) -> {
+            System.out.println("Comparator's compareTo() is called");
+            return s2.getMath() - s1.getMath();
+        });
+        for(StudentMarks sm : students) {
+            spq.add(sm);
+        }
 
         List<StudentMarks> top3 = new ArrayList<>();
         int i = 0;
