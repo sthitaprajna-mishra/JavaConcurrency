@@ -76,12 +76,12 @@ public class Client3 {
 
         PriorityQueue<StudentMarks> spq = new PriorityQueue<>(students);
 
-        List<Integer> top3 = new ArrayList<>();
+        List<StudentMarks> top3 = new ArrayList<>();
         int i = 0;
 
-        while(!pq.isEmpty()) {
+        while(!spq.isEmpty()) {
             if(i == 3) break;
-            top3.add(pq.poll());
+            top3.add(spq.poll());
             i++;
         }
 

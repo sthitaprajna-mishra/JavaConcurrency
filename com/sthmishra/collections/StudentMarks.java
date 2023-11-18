@@ -1,6 +1,6 @@
 package com.sthmishra.collections;
 
-public class StudentMarks {
+public class StudentMarks implements Comparable<StudentMarks> {
     private int math;
     private int physics;
 
@@ -23,5 +23,29 @@ public class StudentMarks {
                 "math=" + math +
                 ", physics=" + physics +
                 '}';
+    }
+    @Override
+    public int compareTo(StudentMarks o) {
+
+        /*
+            current obj <  other obj
+                return -1; // any negative number
+            current obj > other obj
+                return 1; // any positive number
+            current obj == other obj
+                return 0;
+
+        */
+
+//        if(this.math < o.math) return -1;
+//        if(this.math > o.math) return 1;
+//        return 0;
+
+        // above 3 lines can be written in below format
+
+//        return this.math - o.math; // this way it will be ascending
+
+        return o.math - this.math; // this will be descending
+
     }
 }
