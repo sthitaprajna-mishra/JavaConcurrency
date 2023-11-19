@@ -44,5 +44,8 @@ public class Client {
 //            System.out.println(x);
 //        }
 
+        ArrayList<Integer> tenEmployees = new ArrayList<>();
+        tenEmployees.ensureCapacity(10);
+
     }
 }
