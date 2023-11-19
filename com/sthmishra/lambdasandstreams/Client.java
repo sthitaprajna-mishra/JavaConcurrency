@@ -10,7 +10,7 @@ public class Client {
 
         Stream<Integer> myStream = myList.stream();
 //        myStream.forEach((e) -> System.out.println(e));
-        myStream.forEach(System.out::println);
+//        myStream.forEach(System.out::println);
 
         // Intermediate Methods - filter
 
@@ -18,9 +18,21 @@ public class Client {
         // once a terminal operation is done on a stream, it is closed, we need to open a new stream to work on data source
 
         Stream<Integer> myStream1 = myList.stream();
-        myStream1
-                .filter((e) -> e%2 == 0)
-                .forEach((e) -> System.out.println(e));
+        Optional<Integer> temp = myStream1
+                .filter((e) -> {
+                    System.out.println("Filter applied on element " + e);
+                    return e%2 == 0;
+                })
+                .sorted()
+                .map(e -> e + 5)
+                .findFirst();
+//                .collect(Collectors.toList());
+//                .forEach((e) -> System.out.println("Displaying " + e));
 
+        if(temp.isPresent()) {
+            System.out.println(temp.get());
+        }
+
+        System.out.println(temp);
     }
 }
