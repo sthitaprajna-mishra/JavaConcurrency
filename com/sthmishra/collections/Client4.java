@@ -21,7 +21,9 @@ public class Client4 {
                 new Student(3, "Jim Halpert", 87, 21)
         ));
 
-        Collections.sort(students);
+//        Collections.sort(students);
+
+        Collections.sort(students, (s1, s2) -> (int)(s1.psp - s2.psp));
 
         for(Student st : students) {
 //            System.out.println(st.name + " scored " + st.psp);
