@@ -48,4 +48,24 @@ public class StudentMarks implements Comparable<StudentMarks> {
         return o.math - this.math; // this will be descending
 
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+math;
+        result = prime*result+physics;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+        StudentMarks other = (StudentMarks) obj;
+        if(math != other.math) return false;
+        if(physics != other.physics) return false;
+        return true;
+    }
 }
